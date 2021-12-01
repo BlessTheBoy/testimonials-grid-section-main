@@ -14,8 +14,9 @@ body{
     background-color: rgb(32, 19, 226);
     border-radius: .5rem;
     padding: 1.625rem 2rem 2rem;
-    margin-bottom: 1.5rem;
+    margin: 0 auto 1.5rem;
     color: white;
+    max-width: 434px;
 }
 
 .card-header{
@@ -46,7 +47,7 @@ margin-bottom: .1rem;
 .card p:last-child{
 font-weight: 500;
 font-size: 0.8125rem;
-line-height: 1.125rem;
+line-height: 1.25;
 color: #CFCFCF;
 opacity: 0.7;
 }
@@ -54,22 +55,36 @@ opacity: 0.7;
 .card-description{
     font-weight: 600;
 font-size: 1.25rem;
-line-height: 1.5rem;
+line-height: 1.25;
 margin-bottom: 2.5rem;
 color: white;
 }
 
 #first-card{
-    background-color: #733FC8;
+    /* color: #733FC8; */
+    background: /* bottom, image */
+    url(images/bg-pattern-quotation.svg),
+    /* top, transparent red */ 
+    linear-gradient(
+        #733FC8, 
+        #733FC8
+    );
+    background-position:
+    top 0 right 15%;
+    background-size: 25%, 100%;
+    background-repeat: no-repeat;
+    grid-area: first-card;
 }
 
 #second-card{
 background-color: #48556A;
+grid-area: second-card;
 }
 
 #third-card{
 background-color: white;
 color: #48556A;
+grid-area: third-card;
 }
 
 #third-card .card-description{
@@ -82,11 +97,13 @@ color: #48556A;
 
 #fourth-card{
 background-color: #19202D;
+grid-area: fourth-card;
 }
 
 #fifth-card{
 background-color: white;
 color: #48556A;
+grid-area: fifth-card;
 }
 
 #fifth-card .card-description{
@@ -95,4 +112,36 @@ color: #48556A;
 
 #fifth-card p:last-child{
     color: #48556A;
+}
+
+@media screen and (min-width: 600px){
+
+    body{
+        padding: 4rem 0;
+    }
+main{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "first-card first-card second-card fifth-card"
+    "third-card fourth-card fourth-card fifth-card";
+    grid-gap: 1.5rem;
+    width: 94%;
+    margin: 0 auto 2rem;
+    max-width: 1200px;
+}
+
+.card{
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 0;
+}
+
+.card-description{
+    font-size: 1.6rem;
+}
+
+.card p:last-child{
+    font-size: .9rem;
+}
 }
